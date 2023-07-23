@@ -1,20 +1,20 @@
 import logo from "../../images/Logo.png";
-import "./NavBar.css"
+import { Button, Nav,ImgLogo, InputSpace } from "./NavBarStyled";
 
 export default function NavBar() {
   const logobn = logo;
 
   return (
     <>
-      <nav>
-        <div className="input-search-space">
+      <Nav>
+        <InputSpace className="input-search-space">
           <i className="bi bi-search"></i>
-          <input type="text" placeholder="Pesquise por um título"/>
-        </div>
-        <img src={logobn} alt="Logo" />
+          <input type="text" placeholder="Pesquise por um título" />
+        </InputSpace>
+        <ImgLogo className="logo" src={logobn} alt="Logo" />
 
-        <button>Entrar</button>
-      </nav>
+        <Button>Entrar</Button>
+      </Nav>
     </>
   );
 }
