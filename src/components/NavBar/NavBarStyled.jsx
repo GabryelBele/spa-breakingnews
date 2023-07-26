@@ -46,7 +46,7 @@ export const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   max-width: 100%;
-  padding: 1rem 0;
+  padding: 1rem 1rem;
   /* position: fixed;
     top: 0;*/
   background-color: white;

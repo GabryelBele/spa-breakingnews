@@ -1,4 +1,4 @@
-import logo from "../../images/Logo.png";
+import logo from "../../images/Logo.jpg";
 import { Button, Nav,ImgLogo, InputSpace } from "./NavBarStyled";
 
 export default function NavBar() {
