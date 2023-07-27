@@ -1,7 +1,7 @@
 import { CardBody, CardContainer, CardFooter } from "./CardStyled";
 
 /* eslint-disable react/prop-types */
-export function Card({ news }) {
+export function Card( news ) {
   return (
     <>
       <CardContainer>
@@ -10,7 +10,7 @@ export function Card({ news }) {
             <h2>{news.title}</h2>
             <p>{news.text}</p>
           </div>
-          <img src={news.image} alt="imagem" />
+          <img src={news.banner} alt="imagem" />
         </CardBody>
 
         <CardFooter>
@@ -19,7 +19,7 @@ export function Card({ news }) {
             <i className="bi bi-hand-thumbs-up"></i>
           </div>
           <div>
-            <span>{news.comment}</span>
+            <span>{news.comments}</span>
             <i className="bi bi-chat"></i>
           </div>
         </CardFooter>
