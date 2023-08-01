@@ -20,7 +20,7 @@ export const CardBody = styled.article`
   gap: 1rem;
 
   div {
-    display: flex;
+    display: inline-block;
     align-items: center;
   }
 
