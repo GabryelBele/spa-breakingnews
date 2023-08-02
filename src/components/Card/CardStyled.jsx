@@ -5,42 +5,30 @@ export const CardContainer = styled.section`
   flex-direction: column;
   gap: 1rem;
   max-width: 100%;
-  box-shadow: rgba(50, 50, 38, 0.573) 0px 2px 5px 0px,
+
+  box-shadow: rgba(50, 50, 105, 0.149) 0px 2px 5px 0px,
     rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
   border-radius: 0.3rem;
   background-color: #fff;
 `;
-
 export const CardBody = styled.article`
   display: flex;
-  justify-content: space-between;
-  padding: 1rem;
   width: 100%;
+  height: 100%;
 
   div {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
+    justify-content: space-between;
+    padding: 1rem;
+    width: 100%;
   }
 
   img {
-    width: 30%;
+    width: 40%;
     object-fit: cover;
     object-position: center;
-  }
-`;
-
-export const CardFooter = styled.article`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-
-  div {
-    display: flex;
-    align-items: center;
-    gap: 0.2rem;
+    border-radius: 0 0.3rem 0.3rem 0;
   }
 `;
 
@@ -54,5 +42,17 @@ export const CardHeader = styled.article`
     margin-bottom: 1rem;
     font-size: ${(props) => (props.top ? "3rem" : "1.1rem")};
     width: 100%;
+  }
+`;
+
+export const CardFooter = styled.article`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  section {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
   }
 `;

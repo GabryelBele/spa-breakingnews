@@ -1,13 +1,13 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:3000";
+const baseURL = "http://localhost:3000";
 
 export function getAllPosts() {
-  const response = axios.get(`${baseUrl}/news`);
+  const response = axios.get(`${baseURL}/news`); //async
   return response;
 }
 
-export async function getTopPosts() {
-  const response = await axios.get(`${baseUrl}/news/top`);
+export function getTopPost() {
+  const response = axios.get(`${baseURL}/news/top`); //async
   return response;
 }

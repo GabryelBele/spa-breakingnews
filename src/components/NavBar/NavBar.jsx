@@ -1,7 +1,7 @@
 import logo from "../../images/Logo.jpg";
 import { Button, Nav,ImgLogo, InputSpace } from "./NavBarStyled";
 
-export default function NavBar() {
+export function NavBar() {
   const logobn = logo;
 
   return (

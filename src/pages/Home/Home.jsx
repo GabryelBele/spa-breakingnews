@@ -1,30 +1,19 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { Card } from "../../components/Card/Card";
-import NavBar from "../../components/NavBar/NavBar";
+import { NavBar } from "../../components/Navbar/Navbar";
+import { getAllPosts, getTopPost } from "../../services/postsServices";
 import { HomeBody, HomeHeader } from "./HomeStyled";
-import { getAllPosts, getTopPosts } from "../../services/postsServices.js";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
   const [topPost, setTopPost] = useState({});
 
-  async function filterTopPost(allPosts, topPostId) {
-    return allPosts.filter((post) => post.id !== topPostId);
-  }
-
   async function findPost() {
     const postsResponse = await getAllPosts();
     setPosts(postsResponse.data.results);
 
-    const topPostResponse = await getTopPosts();
+    const topPostResponse = await getTopPost();
     setTopPost(topPostResponse.data.post);
-
-    // Filtrar a notícia do topo do array de posts
-    const filteredPosts = await filterTopPost(
-      postsResponse.data.results,
-      topPostResponse.data.post.id
-    );
-    setPosts(filteredPosts);
   }
 
   useEffect(() => {
@@ -34,10 +23,10 @@ export default function Home() {
   return (
     <>
       <NavBar />
+
       <HomeHeader>
         <Card
-          top={true}
-          key={topPost.id}
+          top={true} // Passando o valor correto da prop 'top', neste caso, é uma booleana.
           title={topPost.title}
           text={topPost.text}
           banner={topPost.banner}
@@ -45,20 +34,17 @@ export default function Home() {
           comments={topPost.comments}
         />
       </HomeHeader>
-
       <HomeBody>
-        {posts.map((users) => {
-          return (
-            <Card
-              key={users.id}
-              title={users.title}
-              text={users.text}
-              banner={users.banner}
-              likes={users.likes}
-              comments={users.comments}
-            />
-          );
-        })}
+        {posts.map((item) => (
+          <Card
+            key={item.id}
+            title={item.title}
+            text={item.text}
+            banner={item.banner}
+            likes={item.likes}
+            comments={item.comments}
+          />
+        ))}
       </HomeBody>
     </>
   );
