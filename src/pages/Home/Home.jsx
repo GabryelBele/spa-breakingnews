@@ -20,7 +20,10 @@ export default function Home() {
     setTopPost(topPostResponse.data.post);
 
     // Filtrar a notícia do topo do array de posts
-    const filteredPosts = await filterTopPost(postsResponse.data.results, topPostResponse.data.post.id);
+    const filteredPosts = await filterTopPost(
+      postsResponse.data.results,
+      topPostResponse.data.post.id
+    );
     setPosts(filteredPosts);
   }
 
@@ -33,6 +36,7 @@ export default function Home() {
       <NavBar />
       <HomeHeader>
         <Card
+          top={true}
           key={topPost.id}
           title={topPost.title}
           text={topPost.text}
