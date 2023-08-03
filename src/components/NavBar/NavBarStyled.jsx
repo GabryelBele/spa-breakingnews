@@ -35,7 +35,6 @@ export const InputSpace = styled.div`
 `;
 
 export const ImgLogo = styled.img`
-  width: 8rem;
   height: 3.5rem;
   object-fit: cover;
   cursor: pointer;

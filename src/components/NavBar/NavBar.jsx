@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import logo from "../../images/Logo.jpg";
+import logo from "../../images/Logo.png";
 import { Button, Nav, ImgLogo, InputSpace } from "./NavBarStyled";
 
 export function NavBar() {
