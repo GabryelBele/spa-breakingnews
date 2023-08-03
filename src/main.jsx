@@ -1,11 +1,35 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.jsx";
-import "./GlobalStyled.jsx";
+import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import { NavBar } from "./components/Navbar/Navbar.jsx";
+import { GlobalStyled } from "./GlobalStyled.jsx";
+import { Search } from "./pages/Search/Search.jsx";
+import { Home } from "./pages/Home/Home.jsx";
+import ErrorPage from "./components/ErrorPage/ErrorPage.jsx";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <NavBar />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/search",
+        element: <Search />,
+      },
+    ],
+  },
+]);
 
 const root = createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <GlobalStyled />
+    <RouterProvider router={router} />
+    <Outlet />
   </React.StrictMode>
 );

@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { Card } from "../../components/Card/Card";
-import { NavBar } from "../../components/Navbar/Navbar";
 import { getAllPosts, getTopPost } from "../../services/postsServices";
 import { HomeBody, HomeHeader } from "./HomeStyled";
+import { Outlet } from "react-router-dom";
 
-export default function Home() {
+export function Home() {
   const [posts, setPosts] = useState([]);
   const [topPost, setTopPost] = useState({});
 
@@ -22,11 +22,9 @@ export default function Home() {
 
   return (
     <>
-      <NavBar />
-
       <HomeHeader>
         <Card
-          top={true} // Passando o valor correto da prop 'top', neste caso, é uma booleana.
+          top={true}
           title={topPost.title}
           text={topPost.text}
           banner={topPost.banner}
@@ -46,6 +44,7 @@ export default function Home() {
           />
         ))}
       </HomeBody>
+      <Outlet /> {/* Renderiza o componente correspondente à rota */}
     </>
   );
 }
