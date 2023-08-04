@@ -11,3 +11,9 @@ export function getTopPost() {
   const response = axios.get(`${baseURL}/news/top`); //async
   return response;
 }
+
+
+export function searchNews(title) {
+  const response = axios.get(`${baseURL}/news/search?title=${title}`); //async
+  return response;
+}
