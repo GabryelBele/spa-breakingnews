@@ -60,27 +60,6 @@ export const Nav = styled.nav`
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 `;
 
-export const Button = styled.button`
-  background-color: #393a3b;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  padding: 0.4rem 1rem;
-  color: #fff;
-  transition: all 0.4s ease-in-out;
-  cursor: pointer;
-  border-radius: 0.3rem;
-  font-family: "Times New Roman", Times, serif;
-  font-weight: 500;
-  letter-spacing: 0.1rem;
-  margin-right: 1rem;
-  text-transform: uppercase;
-
-  &:hover {
-    background-color: #757575;
-  }
-`;
-
 export const ErrorSpan = styled.span`
   display: flex;
   justify-content: center;

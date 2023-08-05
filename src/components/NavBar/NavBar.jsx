@@ -1,20 +1,29 @@
 /* eslint-disable no-unused-vars */
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import logo from "../../images/Logo.png";
-import { Button, Nav, ImgLogo, InputSpace, ErrorSpan } from "./NavBarStyled";
+import { Nav, ImgLogo, InputSpace, ErrorSpan } from "./NavBarStyled";
 import { useForm } from "react-hook-form";
-import {z} from "zod"
-import {zodResolver} from "@hookform/resolvers/zod"
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Button } from "../Button/Button.jsx";
 
 const searchSchema = z.object({
-  title: z.string().nonempty({message: "A pesquisa não pode ser vazia"}).refine(value => !/^\s*$/.test(value), {
-    message: "A pesquisa não pode ter apenas espaços"
-  })
-})
+  title: z
+    .string()
+    .nonempty({ message: "A pesquisa não pode ser vazia" })
+    .refine((value) => !/^\s*$/.test(value), {
+      message: "A pesquisa não pode ter apenas espaços",
+    }),
+});
 
 export function NavBar() {
-  const { register, handleSubmit, reset, formState: {errors} } = useForm({
-    resolver: zodResolver(searchSchema)
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(searchSchema),
   });
   const navigate = useNavigate();
 
@@ -25,7 +34,7 @@ export function NavBar() {
   }
 
   function goAuth() {
-    navigate(`/auth`)
+    navigate(`/auth`);
   }
 
   return (
@@ -48,7 +57,9 @@ export function NavBar() {
           <ImgLogo className="logo" src={logo} alt="Logo" />
         </Link>
 
-        <Button onClick={goAuth}>Entrar</Button>
+        <Link to="/auth">
+          <Button type="submit" text="Entrar" />
+        </Link>
       </Nav>
       {errors.title && <ErrorSpan>{errors.title.message}</ErrorSpan>}
       <Outlet />

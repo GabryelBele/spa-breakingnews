@@ -7,6 +7,13 @@ export const AuthContainer = styled.div`
   align-items: center;
   width: 70%;
   margin: 0 auto;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
 `;
 
 export const Section = styled.section`
